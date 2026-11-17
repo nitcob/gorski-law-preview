@@ -1,0 +1,15 @@
+node_modules/
+dist/
+tools/.ors-cache/
+.lighthouse/
+.DS_Store
+.build-report.json
+
+# Pitch and working docs stay local (not in the public repo)
+AUDIT.md
+CONFIRM.md
+CONTENT_GUIDE.md
+LAUNCH.md
+content-calendar.md
+keyword-map.csv
+research/

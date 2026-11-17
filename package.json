@@ -1,0 +1,20 @@
+{
+  "name": "gorski-law-preview",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Concept preview of a rebuilt Gorski Law website (static, multi-page, SEO-mapped).",
+  "scripts": {
+    "build": "node build.js",
+    "build:prod": "PREVIEW=false node build.js",
+    "serve": "node serve.js",
+    "check": "node tools/check.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "gray-matter": "^4.0.3",
+    "marked": "^18.2.1"
+  },
+  "type": "module"
+}
