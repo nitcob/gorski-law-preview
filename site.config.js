@@ -34,8 +34,8 @@ export const FIRM = {
   openingHoursSpec: { dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '17:00' },
   facebook: 'https://www.facebook.com/trialmoose/',
   areaServed: 'Oregon',
-  // Unknown until Mark confirms. Leave as null: the templates print a {{CONFIRM}} placeholder and the
-  // address stays out of the structured data.
+  // Not published on the firm's current site. While null, the site shows "Portland, Oregon" (the firm's own
+  // description of its office) and no email, and the address stays out of the structured data.
   address: null,
   email: null,
 };

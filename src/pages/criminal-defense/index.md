@@ -160,6 +160,4 @@ Gorski Law works from a Portland-metro base and represents clients throughout Or
 
 Warren, Mark's son, is the office manager and paralegal. He takes the "I'm not sure I even need a lawyer" calls. No lawyer can promise how a criminal case will end. A consultation can help you understand the charge, the deadlines, the options that may apply and the risks of each.
 
-{{CONFIRM: Does Mark handle set-asides (record sealing or expungement) and probation-violation hearings?}}
-
 Call [503-224-1843](tel:+15032241843), Monday to Friday, 9 am to 5 pm.

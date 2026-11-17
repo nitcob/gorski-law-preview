@@ -241,8 +241,9 @@ function header(p) {
 function hoursDL() {
   return `<dl class="hours">${FIRM.hours.map((h) => `<div><dt>${h.short}</dt><dd>${h.time}</dd></div>`).join('')}</dl>`;
 }
-const ADDRESS = FIRM.address ? esc(FIRM.address) : '{{CONFIRM: office street address (none is published on the current site)}}';
-const EMAIL = FIRM.email ? `<a href="mailto:${esc(FIRM.email)}">${esc(FIRM.email)}</a>` : '{{CONFIRM: office email to publish}}';
+// No street address or email is published on the firm's own site, so none is shown until FIRM sets one.
+const ADDRESS = FIRM.address ? esc(FIRM.address) : 'Portland, Oregon';
+const EMAIL = FIRM.email ? `<a href="mailto:${esc(FIRM.email)}">${esc(FIRM.email)}</a>` : '';
 
 function footer(p) {
   const pages1 = ['/duii-defense/', '/duii-defense/diversion/', '/duii-defense/dmv-implied-consent-hearing/', '/traffic-tickets/', '/traffic-tickets/cdl-commercial-drivers/', '/criminal-defense/'];
@@ -256,7 +257,7 @@ function footer(p) {
     </div>
     <div class="foot__col">
       <h2 class="foot__h">Contact</h2>
-      <address class="nap"><span class="nap__name">Gorski Law</span><a href="${TEL}">${FIRM.phone}</a><span>${ADDRESS}</span><span>${EMAIL}</span><a href="${FIRM.facebook}" rel="noopener">Facebook: trialmoose</a></address>
+      <address class="nap"><span class="nap__name">Gorski Law</span><a href="${TEL}">${FIRM.phone}</a><span>${ADDRESS}</span>${EMAIL ? `<span>${EMAIL}</span>` : ''}<a href="${FIRM.facebook}" rel="noopener">Facebook: trialmoose</a></address>
     </div>
     <div class="foot__col"><h2 class="foot__h">Hours</h2>${hoursDL()}</div>
     <nav class="foot__col" aria-label="Practice areas"><h2 class="foot__h">Practice areas</h2><ul class="foot__pages">${pages1.map(li).join('')}</ul></nav>
@@ -534,7 +535,7 @@ function graph(p, crumbs) {
 const CSS = fs.readFileSync(path.join(SRC, 'assets/template.css'), 'utf8') + '\n' + fs.readFileSync(path.join(SRC, 'assets/gorski.css'), 'utf8');
 const CSS_V = crypto.createHash('md5').update(CSS).digest('hex').slice(0, 8);
 // colours sampled from the Gorski Law logo: shield orange, navy lettering
-const THEME = ':root { --accent: #fc9024; --accent-ink: #0c2448; --ink: #0c2448; --paper: #f8f5ef; --display: \'Fraunces\'; }';
+const THEME = ':root { --accent: #fc9024; --accent-ink: #0c2448; --ink: #0c2448; --paper: #f8f5ef; --display: \'Inter\'; }';
 const JS_V = hash(path.join(SRC, 'assets/app.js'));
 function heroPreload(p) {
   const k = p.route === '/' ? 'bridge' : photoFor(p);
@@ -551,7 +552,7 @@ function shell(p, main) {
   const url = abs(p.route);
   const ogImg = abs('/assets/img/og.jpg');
   return `<!doctype html>
-<html lang="en-US" data-font="Fraunces" data-skin="editorial">
+<html lang="en-US" data-font="Inter" data-skin="editorial">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -579,7 +580,7 @@ ${p.kind === 'post' ? `<meta property="article:published_time" content="${isoDat
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 ${heroPreload(p)}
-<link rel="preload" href="/assets/fonts/Fraunces-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/Inter-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/styles.css?v=${CSS_V}">
 <style>${THEME}</style>
 <link rel="alternate" type="application/rss+xml" title="Gorski Law blog" href="/rss.xml">
@@ -651,7 +652,7 @@ function build() {
   const x = (s) => esc(s).replace(/'/g, '&apos;');
   write('rss.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n<channel>\n<title>Gorski Law blog</title>\n<link>${abs('/blog/')}</link>\n<atom:link href="${abs('/rss.xml')}" rel="self" type="application/rss+xml"/>\n<description>Plain-language guides to Oregon DUII, traffic and criminal law from Gorski Law. Drafts pending attorney review.</description>\n<language>en-us</language>\n<lastBuildDate>${new Date(BUILD_DATE + 'T12:00:00Z').toUTCString()}</lastBuildDate>\n${posts.map((p) => `<item>\n  <title>${x(p.fm.h1 || p.title)}</title>\n  <link>${abs(p.route)}</link>\n  <guid isPermaLink="true">${abs(p.route)}</guid>\n  <pubDate>${new Date(isoDate(p.fm.date) + 'T12:00:00Z').toUTCString()}</pubDate>\n  <description>${x(p.description)}</description>\n</item>`).join('\n')}\n</channel>\n</rss>\n`);
   const L = (r) => { const q = byRoute.get(r); return q ? `- [${q.fm.h1 || q.title}](${abs(r)}): ${q.description}` : ''; };
-  write('llms.txt', `# Gorski Law\n\n> Gorski Law is the Oregon criminal defense, DUII and traffic defense practice of attorney Mark S. Gorski (Oregon State Bar No. 912881, admitted 1991). It represents clients throughout Oregon, including eastern and southern Oregon, from a Portland-metro base. Free consultation. Phone ${FIRM.phone}, Monday to Friday 9:00 am to 5:00 pm.\n\n${PREVIEW ? 'Note: this is a concept preview, not the official Gorski Law website. Practice pages and posts are drafts pending attorney review.\n\n' : ''}Gorski Law uses "DUII" (driving under the influence of intoxicants), Oregon's legal term for what most states call DUI. Content is general information about Oregon law, not legal advice.\n\n## Practice areas\n\n${['/duii-defense/', '/traffic-tickets/', '/criminal-defense/'].map((r) => [L(r), ...childrenOf(r).map((k) => '  ' + L(k.route))].join('\n')).join('\n')}\n\n## Key pages\n\n${['/about-mark-gorski/', '/faq/', '/courts-we-serve/', '/contact/', '/blog/'].map(L).filter(Boolean).join('\n')}\n\n## Guides\n\n${posts.map((p) => L(p.route)).join('\n')}\n\n## Contact\n\n- Phone: ${FIRM.phone} (Mon–Fri, 9:00 am – 5:00 pm; closed Sat–Sun)\n- Facebook: ${FIRM.facebook}\n- Office address: not yet published\n`);
+  write('llms.txt', `# Gorski Law\n\n> Gorski Law is the Oregon criminal defense, DUII and traffic defense practice of attorney Mark S. Gorski (Oregon State Bar No. 912881, admitted 1991). It represents clients throughout Oregon, including eastern and southern Oregon, from a Portland-metro base. Free consultation. Phone ${FIRM.phone}, Monday to Friday 9:00 am to 5:00 pm.\n\n${PREVIEW ? 'Note: this is a concept preview, not the official Gorski Law website. Practice pages and posts are drafts pending attorney review.\n\n' : ''}Gorski Law uses "DUII" (driving under the influence of intoxicants), Oregon's legal term for what most states call DUI. Content is general information about Oregon law, not legal advice.\n\n## Practice areas\n\n${['/duii-defense/', '/traffic-tickets/', '/criminal-defense/'].map((r) => [L(r), ...childrenOf(r).map((k) => '  ' + L(k.route))].join('\n')).join('\n')}\n\n## Key pages\n\n${['/about-mark-gorski/', '/faq/', '/courts-we-serve/', '/contact/', '/blog/'].map(L).filter(Boolean).join('\n')}\n\n## Guides\n\n${posts.map((p) => L(p.route)).join('\n')}\n\n## Contact\n\n- Phone: ${FIRM.phone} (Mon–Fri, 9:00 am – 5:00 pm; closed Sat–Sun)\n- Facebook: ${FIRM.facebook}\n- Office: Portland, Oregon\n`);
 
   // CONFIRM.md: refresh the auto-collected list between the markers
   const cfile = path.join(ROOT, 'CONFIRM.md');

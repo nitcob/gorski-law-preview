@@ -147,7 +147,7 @@ Oregon law protects people who call for help. A person who contacts emergency se
 - Note your first appearance date and count 30 days for the conditional discharge deadline.
 - Ask whether a deflection referral was made, or is still possible.
 - Keep every court date. A warrant can delay sealing (ORS 137.224).
-- Ask about sealing. Many outcomes now lead to sealed records under ORS 137.224. {{CONFIRM: Does Mark handle set-asides (record sealing or expungement) and probation-violation hearings?}}
+- Ask about sealing. Many outcomes now lead to sealed records under ORS 137.224.
 
 A possession charge is separate from a drug DUII. If your case started at a traffic stop, see [how marijuana and drug impairment is proven in Oregon](/blog/marijuana-drug-duii-oregon-how-impairment-is-proven/).
 

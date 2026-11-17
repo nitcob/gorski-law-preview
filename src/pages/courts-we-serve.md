@@ -45,11 +45,6 @@ Not necessarily. Gorski Law already represents clients across the state, includi
 
 The DMV side of a DUII case is different. An [implied consent hearing](/duii-defense/dmv-implied-consent-hearing/) is run by an administrative law judge and, by default, held by telephone or another two-way electronic device, wherever the arrest happened ([ORS 813.410](https://oregon.public.law/statutes/ors_813.410)).
 
-## Which counties does Mark appear in most?
-
-{{CONFIRM: the counties Mark regularly appears in (for example Multnomah, Washington, Clackamas)}}
-
-County pages for Multnomah, Washington and Clackamas will be added only once Mark confirms he appears there regularly, and each will carry genuinely local information: the courthouse, how first appearances work there, and local notes on DUII diversion. Until then, this page covers how cases work statewide.
 
 ## What should I have ready when I call?
 

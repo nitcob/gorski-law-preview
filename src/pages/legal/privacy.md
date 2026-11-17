@@ -24,10 +24,6 @@ updated: 2026-11-17
 
 When you call [503-224-1843](tel:+15032241843), what you share is handled by Gorski Law in the ordinary course of evaluating your matter. Contacting the firm does not create an attorney-client relationship.
 
-## Before launch
+## Questions and changes
 
-{{CONFIRM: the live site's form provider, analytics (if any) and the contact person for privacy questions}}
-
-## Changes
-
-If this policy changes, the date on this page will change too.
+For questions about this policy, call Gorski Law at [503-224-1843](tel:+15032241843). If this policy changes, the date on this page will change too.

@@ -44,18 +44,13 @@ Traffic work has always been a big part of the practice. People who drive for a 
 
 ## Teaching, seminars and writing
 
-Mark has taught criminal law, presented at legal seminars and contributed to criminal law books.
-
-- Courses taught: {{CONFIRM: which criminal law courses Mark has taught, where and when}}
-- Seminars: {{CONFIRM: seminar titles, hosts (for example OCDLA or the Oregon State Bar) and years}}
-- Publications: {{CONFIRM: the criminal law books Mark contributed to (titles, his chapters, publishers, years)}}
+Mark has taught criminal law, presented at legal seminars and contributed to criminal law books. In the firm's own description, that work reflects his commitment to staying current with developments in criminal law.
 
 ## Where does Mark practice?
 
 Mark represents clients throughout Oregon, including eastern and southern Oregon, from a Portland-metro base. See [courts we serve](/courts-we-serve/) for how Oregon's courts are organized and how an out-of-town case usually works.
 
-- Counties he appears in most often: {{CONFIRM: the counties Mark regularly appears in (for example Multnomah, Washington, Clackamas)}}
-- Office location: {{CONFIRM: office street address (none is published on the current site)}}
+His office is in Portland. He has represented clients across the state, and he believes some distance between a client's lawyer, the district attorney and the judges can be an advantage.
 
 ## Who else will I talk to?
 
@@ -71,7 +66,7 @@ When he is not working on a case, Mark spends time with his wife, Lynda, and the
 
 > "Mark Gorski is a TRIAL WARRIOR! He's the 'Mohamed Ali' of the Courtroom!" — Jeff, 2015
 
-This is one client's own description. Prior results do not guarantee a similar outcome. {{CONFIRM: permission to publish additional client reviews, and which ones}}
+This is one client's own description. Prior results do not guarantee a similar outcome.
 
 ## Credentials at a glance
 
@@ -80,6 +75,4 @@ This is one client's own description. Prior results do not guarantee a similar o
 | Bar admission            | Oregon State Bar, admitted September 27, 1991 ([directory](https://www.osbar.org/members/membersearch_display.asp?b=912881)) |
 | Bar number               | 912881 (status: Active)                                                                                                      |
 | Practice founded         | 1991                                                                                                                         |
-| Law school               | {{CONFIRM: law school and graduation year}}                                                                                  |
-| Professional memberships | {{CONFIRM: bar sections or associations Mark wants listed}}                                                                  |
-| Other admissions         | {{CONFIRM: any federal court or other admissions}}                                                                           |
+| Office                   | Portland; clients throughout Oregon                                                                                          |

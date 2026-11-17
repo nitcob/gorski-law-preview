@@ -122,6 +122,7 @@ for (const [route, h] of pages) {
   const t = text(h);
   for (const s of ['Attorney Advertising', 'Prior results do not guarantee a similar outcome', 'This website is general information, not legal advice; contacting us does not create an attorney-client relationship', 'Responsible attorney', 'Mark S. Gorski', '503-224-1843']) if (!t.includes(s)) fail(route, `missing "${s}"`);
   if (/reviewed by mark/i.test(t)) fail(route, 'says "reviewed by Mark"');
+  if (/\{\{\s*CONFIRM/.test(h)) fail(route, 'shows a {{CONFIRM}} placeholder (unknowns are left out of the site; questions for Mark live in CONFIRM.md)');
   if (PREVIEW && !t.includes('Concept preview — not the official Gorski Law website.')) fail(route, 'missing preview ribbon');
   if (!h.includes('href="tel:+15032241843"')) fail(route, 'no tel: link');
   const fm = srcByRoute.get(route) || {};
