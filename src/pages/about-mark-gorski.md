@@ -24,11 +24,6 @@ sources:
     url: "https://www.facebook.com/trialmoose/"
 ---
 
-<figure class="split__media" style="max-width:360px;margin:0 0 2em">
-<div class="author__img" style="width:100%;height:auto;aspect-ratio:4/5;border-radius:2px;font-size:4rem" aria-hidden="true">MG</div>
-<figcaption>{{CONFIRM: a professional headshot of Mark S. Gorski}}</figcaption>
-</figure>
-
 Mark S. Gorski is an Oregon criminal defense, DUII and traffic attorney, and the founder of Gorski Law. The Oregon State Bar's public directory lists him as an active member, Bar No. 912881, admitted on September 27, 1991. He founded his criminal defense practice in 1991 and represents clients throughout Oregon from a Portland-metro base.
 
 ## Who is Mark S. Gorski?
@@ -68,7 +63,9 @@ Warren, Mark's son, is the firm's office manager and paralegal. He handles the "
 
 ## Outside the courtroom
 
-Mark lives near the Columbia River with his wife, Lynda, and their four dogs.
+When he is not working on a case, Mark spends time with his wife, Lynda, and their four dogs, taking in the Columbia River.
+
+<ul class="river"><li><figure><!-- include:img:dogs --><figcaption>On the Columbia River.</figcaption></figure></li><li><figure><!-- include:img:sunset --><figcaption>Evening on the Columbia.</figcaption></figure></li></ul>
 
 ## What a client said
 

@@ -144,20 +144,22 @@
     const saveData = !!(navigator.connection && navigator.connection.saveData);
     const start = () => {
       if (saveData) return;
+      // Inlined as <svg> rather than an <img>: line art is not content, and an inline SVG is never counted as
+      // the page's largest contentful paint (an <img> fading in after load would be).
+      const cache = {};
       bgs.forEach((bg) => {
-        const img = new Image();
-        img.className = 'bg__topo';
-        img.alt = '';
-        img.decoding = 'async';
-        img.setAttribute('aria-hidden', 'true');
-        img.addEventListener('load', () => {
-          bg.appendChild(img);
+        const src = bg.dataset.src;
+        cache[src] = cache[src] || fetch(src).then((r) => (r.ok ? r.text() : Promise.reject(r.status)));
+        cache[src].then((svg) => {
+          const layer = document.createElement('div');
+          layer.className = 'bg__topo';
+          layer.innerHTML = svg;
+          bg.appendChild(layer);
           requestAnimationFrame(() => {
-            img.classList.add('is-on');
+            layer.classList.add('is-on');
             if (!reduced()) bg.classList.add('is-live');
           });
-        }, { once: true });
-        img.src = bg.dataset.src;
+        }).catch(() => { /* no background: the page is complete without it */ });
       });
     };
     const idle = () => ('requestIdleCallback' in window ? window.requestIdleCallback(start, { timeout: 3000 }) : setTimeout(start, 600));

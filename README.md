@@ -50,7 +50,7 @@ Preview safety does not rely on robots.txt: on a GitHub Pages project site, craw
 | ---------------------- | ----------------------------------------------------------------------------------------------- |
 | `src/pages/`           | One file per URL (`.md` or `.html` with front matter); the folder path is the URL               |
 | `src/posts/`           | Blog posts in Markdown, served at `/blog/<slug>/`                                               |
-| `src/assets/`          | `styles.css`, `app.js`, self-hosted fonts, images, the Open Graph image                         |
+| `src/assets/`          | `template.css` (the law template's stylesheet, trimmed to the sections used; rules unedited) + `gorski.css` (the Gorski Law layer), joined into `styles.css` at build; `app.js`, fonts, the firm's photos, the Open Graph image |
 | `tools/ors.py`         | Prints any Oregon statute from the official 2025 ORS (`python3 tools/ors.py 813.410`)           |
 | `tools/topo.js`        | Generates the animated contour-map background                                                   |
 | `tools/check.js`       | QA checks used locally and in CI                                                                |

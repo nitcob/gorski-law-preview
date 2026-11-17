@@ -94,7 +94,10 @@ function simplify(line, tol = 1.1) {
   return out;
 }
 
-export function topoSVG({ seed = 1991, levels = 22, stroke = '#f3f0e9', accent = '#e8774a' } = {}) {
+// light: navy lines for a paper background (the template's editorial skin), a touch fainter than on dark
+export function topoSVG({ seed = 1991, levels = 22, stroke = '#f3f0e9', accent = '#e8774a', light = false } = {}) {
+  const o = light ? [0.06, 0.11, 0.16] : [0.085, 0.17, 0.42];
+  if (light) accent = stroke; // on paper the river line is navy too: an orange stray line read as a glitch
   const f = field(seed);
   let lo = Infinity, hi = -Infinity;
   for (const r of f) for (const v of r) { lo = Math.min(lo, v); hi = Math.max(hi, v); }
@@ -106,8 +109,8 @@ export function topoSVG({ seed = 1991, levels = 22, stroke = '#f3f0e9', accent =
     if (k === 2) paths.river.push(d); else if (k % 5 === 0) paths.index.push(d); else paths.minor.push(d);
   }
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice" fill="none" stroke-linecap="round" stroke-linejoin="round">`
-    + `<path d="${paths.minor.join('')}" stroke="${stroke}" stroke-opacity=".085" stroke-width="1"/>`
-    + `<path d="${paths.index.join('')}" stroke="${stroke}" stroke-opacity=".17" stroke-width="1.4"/>`
-    + `<path d="${paths.river.join('')}" stroke="${accent}" stroke-opacity=".42" stroke-width="1.6"/>`
+    + `<path d="${paths.minor.join('')}" stroke="${stroke}" stroke-opacity="${o[0]}" stroke-width="1"/>`
+    + `<path d="${paths.index.join('')}" stroke="${stroke}" stroke-opacity="${o[1]}" stroke-width="1.4"/>`
+    + `<path d="${paths.river.join('')}" stroke="${accent}" stroke-opacity="${o[2]}" stroke-width="1.6"/>`
     + `</svg>`;
 }

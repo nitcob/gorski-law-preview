@@ -143,7 +143,7 @@ for (const [route, h] of pages) {
   }
   if (fm._post) {
     const money = fm.target_money_page;
-    const body = (h.match(/<div class="prose">([\s\S]*?)<\/div>\s*<div class="callbox">/) || [])[1] || '';
+    const body = (h.match(/<article class="doc__main">([\s\S]*?)<div class="callbox">/) || [])[1] || '';
     if (!body.includes(`href="${BASE_PATH}${money}"`)) fail(route, `body does not link to its money page ${money}`);
     for (const s of fm.related_posts || []) if (!body.includes(`href="${BASE_PATH}/blog/${s}/"`)) notes.push(`${route}: related post ${s} linked only in the cards, not in the body`);
     row.words = report.pages.find((p) => p.route === route)?.words;
